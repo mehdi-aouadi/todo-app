@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import router from '@/router';
+
 export default {
   name: 'Login',
   data() {
@@ -30,6 +32,7 @@ export default {
         message: 'The login will be available soon!',
         duration: 5000,
       });
+      router.push('/dashboard');
     },
   },
 };
