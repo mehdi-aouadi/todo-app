@@ -1,25 +1,22 @@
 <template lang="pug">
-  div Welcome to your Dashboard!
+  div Welcome to your Dashboard {{ login }} !
 
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Dashboard',
   data() {
     return {
-      login: '',
+      test: '',
     };
   },
+  computed: {
+    ...mapGetters(['login']),
+  },
   methods: {
-    startHacking() {
-      this.$notify({
-        title: 'It works!',
-        type: 'success',
-        message: 'The login will be available soon!',
-        duration: 5000,
-      });
-    },
   },
 };
 </script>
