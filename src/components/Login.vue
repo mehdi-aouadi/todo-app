@@ -16,6 +16,7 @@
 
 <script>
 import router from '@/router';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Login',
@@ -24,7 +25,11 @@ export default {
       login: '',
     };
   },
+  /*   computed: {
+    ...mapGetters(['login']),
+  }, */
   methods: {
+    ...mapActions(['setLogin']),
     startHacking() {
       this.$notify({
         title: 'It works!',
@@ -32,6 +37,7 @@ export default {
         message: 'The login will be available soon!',
         duration: 5000,
       });
+      this.$store.dispatch('setLogin', this.login);
       router.push('/dashboard');
     },
   },
